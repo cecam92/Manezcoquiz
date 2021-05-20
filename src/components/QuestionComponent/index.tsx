@@ -26,6 +26,8 @@ const QuestionComponent = ({ data }: QuestionComponentProps) => {
   const options = data.options
   const answer = data.answer
   const score = useSelector(({ score }: any) => score)
+  const TotalQuestions = useSelector(({ questions }: any) => questions)
+
   const answerState = useSelector(({ answer }: any) => answer)
   const [isDisabled, setIsDisabled] = useState(false)
   const { category } = useParams<ParamsProps>()
@@ -36,15 +38,13 @@ const QuestionComponent = ({ data }: QuestionComponentProps) => {
   const handleClick = (label: string) => {
     checkAnswer(label)
     dispatch({
-      type: 'SAVE_QUESTION',
+      type: 'SAVE_ANSWER',
       payload: id ? id + 1 : 1
     })
-    history.push(`/${category}/${id + 1}`)
+    showNext()
   }
-  console.log(isDisabled)
   const checkAnswer = (data: string) => {
     const currentScore: number = score
-    console.log(currentScore + 1)
     if (data === answer) {
       dispatch({
         type: 'ADD_SCORE',
@@ -52,10 +52,17 @@ const QuestionComponent = ({ data }: QuestionComponentProps) => {
       })
     }
   }
+  const showNext = () => {
+    if (TotalQuestions === id) {
+      history.push(`/${category}/results`)
+    } else {
+      history.push(`/${category}/${id + 1}`)
+    }
+  }
 
   useEffect(() => {
     answerState > id ? setIsDisabled(true) : setIsDisabled(false)
-  }, [answerState, id])
+  }, [answerState, id, score])
 
   return (
     <>
@@ -76,7 +83,6 @@ const QuestionComponent = ({ data }: QuestionComponentProps) => {
             ))}
         {}
       </ListContainer>
-      <p>{`Score ${score}`}</p>
     </>
   )
 }

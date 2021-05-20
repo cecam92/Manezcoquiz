@@ -9,10 +9,10 @@ interface ContainerOptionProps {
   opacity?: number
 }
 const colors = [
-  { name: 'Sports', color: 'red' },
-  { name: 'Science', color: 'blue' },
-  { name: 'Math', color: 'orange' },
-  { name: 'Biology', color: 'purple' }
+  { name: 'Sports', color: '#ddd' },
+  { name: 'Science', color: '#ddd' },
+  { name: 'Math', color: '#ddd' },
+  { name: 'Biology', color: '#ddd' }
 ]
 
 export const Container = styled.div<ContainerProps>`
@@ -33,7 +33,7 @@ export const ContainerOption = styled.div<ContainerOptionProps>`
   opacity: ${(props) => props.opacity}};
 `
 export const Label = styled.div`
-  color: red;
+  color: black;
   margin-left: 10px;
   width: 100%;
   height: 100%;
@@ -46,6 +46,5 @@ export const IconContainer = styled.div`
   width: 40px;
   height: 40px;
   padding: 19px;
-  border: 1px solid red;
   border-radius: 20px;
 `

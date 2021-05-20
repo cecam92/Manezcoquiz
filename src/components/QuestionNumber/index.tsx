@@ -20,7 +20,6 @@ const QuestionNumber = ({ data }: QuestionNumberProps) => {
     }
   }
   return (
-    // TODO: onClick
     <QuestionNumberContainer>
       {Array.from(Array(data).keys()).map((el, index) => (
         <Question

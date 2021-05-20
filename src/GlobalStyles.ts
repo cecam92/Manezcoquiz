@@ -29,6 +29,8 @@ export const Title = styled.h2`
 `
 export const MainContainer = styled.div`
   width: 100vw;
+  max-width: 800px;
+  margin: 0 auto;
 `
 export const ListContainer = styled.div`
   width: 100%;

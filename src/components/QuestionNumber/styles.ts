@@ -8,10 +8,10 @@ export const QuestionNumberContainer = styled.div`
   margin: 15px auto;
 `
 export const Question = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background-color: red;
+  background-color: #ddd;
   display: flex;
   justify-content: center;
   align-items: center;
